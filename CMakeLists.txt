@@ -2,7 +2,11 @@ cmake_minimum_required(VERSION 3.5)
 
 project(pcapsniffer LANGUAGES C)
 
-set(WINPCAP_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/winpcap")
+if(WINPCAP_ROOT)
+    message(STATUS "WINPCAP_ROOT = ${WINPCAP_ROOT}" )
+else()
+    message(FATAL_ERROR "You must set WINPCAP_ROOT variable" )
+endif()
 
 
 #sniffer
